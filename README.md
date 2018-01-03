@@ -17,6 +17,8 @@ Compilation de Darkice avec prise en charge de AAC et MP3 sur Raspberry Pi avec 
     $ cd darkice-1.2/
     $ sudo nano debian/rules
   
+Modifier le texte ainsi :
+
     #!/usr/bin/make -f
 
     %:
@@ -28,10 +30,12 @@ Compilation de Darkice avec prise en charge de AAC et MP3 sur Raspberry Pi avec 
           ln -s /usr/share/misc/config.sub .
           dh_auto_configure -- --prefix=/usr --sysconfdir=/usr/share/doc/darkice/examples --with-vorbis-prefix=/usr/lib/arm-linux-      gnueabihf/ --with-jack-prefix=/usr/lib/arm-linux-gnueabihf/ --with-alsa-prefix=/usr/lib/arm-linux-gnueabihf/ --with-faac-prefix=/usr/lib/arm-linux-gnueabihf/ --with-aacplus-prefix=/usr/lib/arm-linux-gnueabihf/ --with-samplerate-prefix=/usr/lib/arm-linux-gnueabihf/ --with-lame-prefix=/usr/lib/arm-linux-gnueabihf/ CFLAGS='-march=armv6 -mfpu=vfp -mfloat-abi=hard'
 
+Terminer la compilation :
+
     $ dpkg-buildpackage -rfakeroot -uc -b
     $ sudo dpkg -i ../darkice_1.2-0.2_armhf.deb
   
 ## Notes et liens 
 
 - https://raspberrypi.stackexchange.com/a/68267
-
+- https://archive.is/rC8We
