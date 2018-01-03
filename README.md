@@ -39,3 +39,4 @@ Terminer la compilation :
 
 - https://raspberrypi.stackexchange.com/a/68267
 - https://archive.is/rC8We
+- https://technic2radio.fr/tuto-raspberry-pi-darkice-streaming-audio/
