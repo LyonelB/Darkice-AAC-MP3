@@ -5,7 +5,7 @@ Compilation de Darkice avec prise en charge de AAC et MP3 sur Raspberry Pi avec 
     $ sudo sh -c "echo 'deb-src http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi' >> /etc/apt/sources.list"
     $ sudo apt-get update
     $ sudo apt-get upgrade --yes
-    $ sudo apt-get install dh-autoreconf libtool libtool-bin libasound2-dev
+    $ sudo apt-get install dh-autoreconf libtool libtool-bin libasound2-dev libfftw3-dev
 
 ## Compilation de libfaac
 
@@ -14,6 +14,15 @@ Compilation de Darkice avec prise en charge de AAC et MP3 sur Raspberry Pi avec 
     $ libtool --finish /usr/lib/arm-linux-gnueabihf
     $ sudo dpkg -i libfaac0_1.28+cvs20151130-1_armhf.deb libfaac-dev_1.28+cvs20151130-1_armhf.deb faac_1.28+cvs20151130-1_armhf.deb
   
+## Compilation de libaacplus - NE PAS FAIRE : CELA BLOQUE L'INSTALLATION DE DARKICE
+
+    $ wget http://tipok.org.ua/downloads/media/aacplus/libaacplus/libaacplus-2.0.2.tar.gz
+    $ tar -xzf libaacplus-2.0.2.tar.gz
+    $ cd libaacplus-2.0.2
+    $ ./autogen.sh --with-parameter-expansion-string-replace-capable-shell=/bin/bash --host=arm-unknown-linux-gnueabi --enable-static
+    $ make
+    $ sudo make install
+
 ## Compilation et installation de Darkice
 
     $ sudo apt-get --no-install-recommends install build-essential devscripts autotools-dev fakeroot dpkg-dev debhelper autotools-dev dh-make quilt ccache libsamplerate0-dev libpulse-dev libaudio-dev lame libjack-jackd2-dev libasound2-dev libtwolame-dev libfaad-dev libflac-dev libmp4v2-dev libshout3-dev libmp3lame-dev libopus-dev
