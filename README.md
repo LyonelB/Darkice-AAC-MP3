@@ -13,13 +13,14 @@ Compilation de Darkice avec prise en charge de AAC et MP3 sur Raspberry Pi avec 
     $ apt-get -b source libfaac0 faac
     $ libtool --finish /usr/lib/arm-linux-gnueabihf
     $ sudo dpkg -i libfaac0_1.28+cvs20151130-1_armhf.deb libfaac-dev_1.28+cvs20151130-1_armhf.deb faac_1.28+cvs20151130-1_armhf.deb
-  
-## Compilation de libaacplus - NE PAS FAIRE : CELA BLOQUE L'INSTALLATION DE DARKICE
 
-    $ wget http://tipok.org.ua/downloads/media/aacplus/libaacplus/libaacplus-2.0.2.tar.gz
-    $ tar -xzf libaacplus-2.0.2.tar.gz
-    $ cd libaacplus-2.0.2
-    $ ./autogen.sh --with-parameter-expansion-string-replace-capable-shell=/bin/bash --host=arm-unknown-linux-gnueabi --enable-static
+## Compilation d'Opus
+    
+    $ cd src
+    $ wget http://downloads.xiph.org/releases/opus/opus-1.1.tar.gz
+    $ tar xzvf opus-1.1.tar.gz
+    $ cd opus-1.1
+    $ ./configure
     $ make
     $ sudo make install
 
@@ -32,6 +33,7 @@ Compilation de Darkice avec prise en charge de AAC et MP3 sur Raspberry Pi avec 
     $ sudo nano debian/rules
   
 et copiez le texte suivant : https://raw.githubusercontent.com/LyonelB/Darkice-AAC-MP3/master/debian-rules
+pour ajouter "opus", ajouter la ligne suivante :  --with-opus-prefix=/home/pi/opus-1.1
 
 Terminer la compilation :
 
@@ -40,6 +42,7 @@ Terminer la compilation :
   
 ## Notes et liens 
 
+- https://github.com/rafael2k/darkice/issues/96
 - https://raspberrypi.stackexchange.com/a/68267
 - https://archive.is/rC8We
 - https://technic2radio.fr/tuto-raspberry-pi-darkice-streaming-audio/
