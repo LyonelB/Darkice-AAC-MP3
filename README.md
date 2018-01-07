@@ -47,8 +47,8 @@ Et supprimer le # devant deb-src (Ctrl+O pour enregistrer et Ctrl+X pour quitter
     
 ## Notes et liens 
 
-- https://github.com/rafael2k/darkice/issues/96
-- https://raspberrypi.stackexchange.com/a/68267
-- https://archive.is/rC8We
-- https://technic2radio.fr/tuto-raspberry-pi-darkice-streaming-audio/
-- https://github.com/coreyk/darkice-libaacplus-rpi-guide
+- [https://github.com/rafael2k/darkice/issues/96](https://github.com/rafael2k/darkice/issues/96)
+- [https://raspberrypi.stackexchange.com/a/68267](https://raspberrypi.stackexchange.com/a/68267)
+- [https://archive.is/rC8We](https://archive.is/rC8We)
+- [https://technic2radio.fr/tuto-raspberry-pi-darkice-streaming-audio/](https://technic2radio.fr/tuto-raspberry-pi-darkice-streaming-audio/)
+- [https://github.com/coreyk/darkice-libaacplus-rpi-guide](https://github.com/coreyk/darkice-libaacplus-rpi-guide)
