@@ -45,6 +45,31 @@ Et supprimer le # devant deb-src (Ctrl+O pour enregistrer et Ctrl+X pour quitter
     $ cd
     $ sudo nano /etc/darkice.cfg
     
+## Auto start
+
+    $ sudo apt-get install daemontools daemontools-run
+    $ sudo mkdir /etc/service/darkice
+    $ sudo chmod 2775 /etc/service/darkice
+    $ sudo touch /etc/service/darkice/run
+    $ sudo nano /etc/service/darkice/run
+    
+Et ajoutez le texte suivant 
+
+    #!/bin/sh
+    echo Running service
+    exec darkice
+
+## IP fixe
+
+    $ sudo nano  /etc/dhcpcd.conf
+
+Et ajoutez le texte suivant 
+
+    interface eth0
+    static ip_address=192.168.1.234/24
+    static routers=192.168.1.1
+    static domain_name_servers=192.168.1.1
+    
 ## Notes et liens 
 
 - [https://github.com/rafael2k/darkice/issues/96](https://github.com/rafael2k/darkice/issues/96)
