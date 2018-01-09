@@ -1,6 +1,7 @@
-# Darkice avec AAC, AAC-HE, MP3, OPUS et OGG
+# Darkice avec AAC, AAC+, MP3 et OGG
 
-Compilation de Darkice avec prise en charge de AAC, AAC-HE, MP3, OPUS et OGG sur Raspberry Pi avec [Raspbian Jessie Lite](http://ftp.jaist.ac.jp/pub/raspberrypi/raspbian_lite/images/raspbian_lite-2017-07-05/)
+Compilation de Darkice avec prise en charge de AAC, AACplus, MP3 et OGG sur Raspberry Pi avec [Raspbian Jessie Lite](http://ftp.jaist.ac.jp/pub/raspberrypi/raspbian_lite/images/raspbian_lite-2017-07-05/)
+Pour le moment, impossible de diffuser un flux au format OPUS à partir du Raspberry Pi (Buffer overun). Et en AAC+, impossible de dépaser les 64kbps pour le bitrate.
 
 ## Préparation
 
