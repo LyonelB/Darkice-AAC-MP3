@@ -26,7 +26,7 @@ Et supprimer le # devant deb-src (Ctrl+O pour enregistrer et Ctrl+X pour quitter
     $ wget http://tipok.org.ua/downloads/media/aacplus/libaacplus/libaacplus-2.0.2.tar.gz
     $ tar -xzf libaacplus-2.0.2.tar.gz
     $ cd libaacplus-2.0.2
-    $ ./autogen.sh --host=arm-unknown-linux-gnueabi --enable-static
+    $ ./autogen.sh --host=arm-unknown-linux-gnueabi --enable-static --enable-shared
     $ make
     $ sudo make install
     $ sudo ldconfig
