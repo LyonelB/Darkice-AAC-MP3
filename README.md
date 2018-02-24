@@ -45,8 +45,59 @@ Et supprimer le # devant deb-src (Ctrl+O pour enregistrer et Ctrl+X pour quitter
 
     $ cd
     $ sudo nano /etc/darkice.cfg
+
+## Supervisor
+
+    $ sudo apt-get install supervisor
+    $ mkdir config && cd config
+    $ mkdir supervisor && cd supervisor
+    $ wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/darkice-supervisor/darkice.conf
+    $ cd
+    $ sudo ln -s /home/pi/config/supervisor/darkice.conf /etc/supervisor/conf.d/darkice.conf
+    $ sudo nano /etc/supervisor/supervisord.conf    
+
+Ajoutez les lignes suivantes
+
+    [inet_http_server]
+    port = 9300
+    username = user ; Auth username
+    password = pass ; Auth password
+
+    [eventlistener:supermail]
+    command=python /usr/local/bin/supermail.py -a -m mail@domain.com -o "[DARKICE]"
+    events=PROCESS_STATE
+
+Reprenez la configuration
+
+    $ sudo /etc/init.d/supervisor restart
+    $ sudo supervisorctl reread
+    $ sudo supervisorctl update
+    $ sudo reboot
+
+Une fois redemarré, vous pourrez accéder à l'interface de supervisor via http://localhost:9300
+
+## Monitoring
+
+    $ sudo apt-get install sendmail
+    $ cd /usr/local/bin
+    $ sudo wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/darkice-supervisor/supermail.py
+    $ cd
+    $ sudo /etc/init.d/supervisor restart
+    $ sudo supervisorctl reread
+    $ sudo supervisorctl update
+
+## IP fixe
+
+    $ sudo nano  /etc/dhcpcd.conf
+
+Et ajoutez le texte suivant 
+
+    interface eth0
+    static ip_address=192.168.1.234/24
+    static routers=192.168.1.1
+    static domain_name_servers=192.168.1.1
     
-## Auto start
+## ANCIENNE SOLUTION // NE PAS FAIRE // Auto start
 
     $ sudo apt-get install daemontools daemontools-run
     $ sudo mkdir /etc/service/darkice
@@ -60,17 +111,6 @@ Et ajoutez le texte suivant
     echo Running service
     exec darkice
 
-## IP fixe
-
-    $ sudo nano  /etc/dhcpcd.conf
-
-Et ajoutez le texte suivant 
-
-    interface eth0
-    static ip_address=192.168.1.234/24
-    static routers=192.168.1.1
-    static domain_name_servers=192.168.1.1
-    
 ## Notes et liens 
 
 - [https://github.com/rafael2k/darkice/issues/96](https://github.com/rafael2k/darkice/issues/96)
