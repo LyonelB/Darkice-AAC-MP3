@@ -19,6 +19,10 @@ Et supprimer le # devant deb-src (Ctrl+O pour enregistrer et Ctrl+X pour quitter
     $ apt-get -b source libfaac0 faac
     $ sudo dpkg -i libfaac0_1.28-6_armhf.deb libfaac-dev_1.28-6_armhf.deb faac_1.28-6_armhf.deb
     $ cd
+    
+#### Pour Rasbian Stretch
+    
+    $ sudo dpkg -i libfaac0_1.28+cvs20151130-1_armhf.deb libfaac-dev_1.28+cvs20151130-1_armhf.deb faac_1.28+cvs20151130-1_armhf.deb
 
 ## Compilation de Libaacplus
 
